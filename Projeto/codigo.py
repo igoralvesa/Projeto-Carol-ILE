@@ -54,7 +54,7 @@ def deletar():
         print(f"{i[:exc]}")
     arquivo.close()
 
-    excluir = input("Qual transação você deseja deletar? ").capitalize()
+    excluir = input("Qual transação você deseja deletar?? ").capitalize()
 
     arquivo = open("dados.csv", "w")
     for linha in linhas:
