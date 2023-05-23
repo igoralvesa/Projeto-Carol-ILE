@@ -17,7 +17,12 @@ def adicionar():
         except ValueError:
             print("informe um valor válido")
     tabela_categoria()
-    escolha_categoria = int(input("O gasto se encaixa em qual categoria? "))
+    while True:
+        try:
+         escolha_categoria = int(input("O gasto se encaixa em qual categoria? "))
+         break
+        except ValueError:
+            print("insira um valor válido")
     arquivo.write(f"{nome}\t{valor}R$ ----- {dic[escolha_categoria]}\n")
     arquivo.close()
 
@@ -25,8 +30,12 @@ def adicionar():
 def ler():
 
     tabela_categoria_ler()
-    escolha_ler = int(
-        input("Digite a categoria que você deseja ver os gastos: "))
+    while True:
+        try:
+         escolha_ler = int(input("Digite a categoria que você deseja ver os gastos: "))
+         break
+        except ValueError:
+            print("insira um valor válido")
     if escolha_ler == 5:
         print("Gastos totais:\n")
         for i in range(1, 5):
