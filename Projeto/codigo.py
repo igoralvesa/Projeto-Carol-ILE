@@ -60,8 +60,12 @@ def deletar():
 
 while decisao == 1:
     menu()
-    
-    pergunta = int(input("o que voce deseja realizar? "))
+    while True:
+      try:
+        pergunta = int(input("o que voce deseja realizar? "))
+        break
+      except ValueError:
+        print("informe um valor válido")
     
     if pergunta == 1:
         adicionar()

@@ -23,3 +23,8 @@ def tabela_categoria_ler():
     print("\t \t \t 4 - USO PESSOAL \t \t \t")
     print("\t \t \t 5 - GASTOS TOTAIS \t \t \t")
     print("-"*76)
+
+        
+
+
+
