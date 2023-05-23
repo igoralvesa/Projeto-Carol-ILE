@@ -10,7 +10,12 @@ decisao = int(input("voce deseja entrar no menu? [ 1- SIM, 2- NÃO ] "))
 def adicionar():
     arquivo = open("dados.csv", "a")
     nome = input("Com o que você gastou? ::: ").capitalize()
-    valor = float(input("Quanto custou? "))
+    while True:
+        try:
+         valor = float(input("Quanto custou? "))
+         break
+        except ValueError:
+            print("informe um valor válido")
     tabela_categoria()
     escolha_categoria = int(input("O gasto se encaixa em qual categoria? "))
     arquivo.write(f"{nome}\t{valor}R$ ----- {dic[escolha_categoria]}\n")
