@@ -61,6 +61,7 @@ def deletar():
     for linha in linhas:
         if excluir not in linha:
             arquivo.write(linha)
+    print("DELETADO!")
     arquivo.close()
 
 
