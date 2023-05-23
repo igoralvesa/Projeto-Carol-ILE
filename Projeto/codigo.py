@@ -1,3 +1,4 @@
+import os
 from funcao import menu
 from funcao import tabela_categoria
 from funcao import tabela_categoria_ler
@@ -68,6 +69,7 @@ while decisao == 1:
     while True:
         try:
             pergunta = int(input("O que você deseja realizar? "))
+            os.system('cls')
             break
         except ValueError:
             print("Informe um valor válido.")
