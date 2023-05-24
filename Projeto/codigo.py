@@ -77,7 +77,49 @@ def ler():
 
 
 def atualizar():
-    return 0
+    while True:
+        
+        with open("dados.csv", 'r') as f:
+            linhas = f.readlines()
+        f.close()
+       
+        arquivo = open("dados.csv", "r")
+        transacoes = []
+        print()
+        for i in arquivo:
+            exc = i.find(next(filter(str.isdigit, i)), 0)
+            print(f"{i[:exc]}")
+            transacoes.append(i[:exc].replace("\t", ""))
+        arquivo.close()
+        
+        transacao_atualizar = input(f"\nQual transação você deseja atualizar? ").capitalize()
+      
+        if transacao_atualizar in transacoes:
+        
+            novo_nome = input("Digite o nome do novo gasto ::: ").capitalize()
+            
+            while True:
+                try:
+                    novo_valor = float(input("Qual é o novo valor da transação? "))
+                    break
+                except ValueError:
+                    print("Informe um valor válido.")
+                    
+            linhas_atualizadas = []
+            for linha in linhas:
+                if transacao_atualizar in linha:
+                    partes = linha.split("\t")
+                    categoria_salva = partes[1].split()
+                    partes[0] = novo_nome
+                    partes[1] = f"{novo_valor}R$ ----- {categoria_salva[len(categoria_salva)-1]}\n"
+                    linha = "\t".join(partes)
+                linhas_atualizadas.append(linha)
+            with open("dados.csv", 'w') as f:
+                f.writelines(linhas_atualizadas)
+            print("Atualizado!")
+            break
+        else:
+            print("Digite uma transação válida: ", "\n")
 
 
 def deletar():
