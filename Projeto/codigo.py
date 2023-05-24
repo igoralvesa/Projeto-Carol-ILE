@@ -59,24 +59,33 @@ def atualizar():
 
 
 def deletar():
-    with open("dados.csv", 'r') as f:
-        linhas = f.readlines()
-    f.close()
+    while True:
+        with open("dados.csv", 'r') as f:
+            linhas = f.readlines()
+        f.close()
 
-    arquivo = open("dados.csv", "r")
-    for i in arquivo:
-        exc = i.find(next(filter(str.isdigit, i)), 0)
-        print(f"{i[:exc]}")
-    arquivo.close()
+        arquivo = open("dados.csv", "r")
+        transacoes = []
+        print()
+        for i in arquivo:
+            exc = i.find(next(filter(str.isdigit, i)), 0)
+            print(f"{i[:exc]}")
+            transacoes.append(i[:exc].replace("\t", ""))
+        arquivo.close()
 
-    excluir = input("Qual transação você deseja deletar?? ").capitalize()
+        excluir = input(f"\nQual transação você deseja deletar?? ").capitalize()
 
-    arquivo = open("dados.csv", "w")
-    for linha in linhas:
-        if excluir not in linha:
-            arquivo.write(linha)
-    print("DELETADO!")
-    arquivo.close()
+        if excluir in transacoes:
+            arquivo = open("dados.csv", "w")
+            for linha in linhas:
+                if excluir not in linha:
+                    arquivo.write(linha)
+            print("DELETADO!")
+            arquivo.close()
+            break
+        
+        else:
+            print("Digite uma transação válida: ", "\n")
 
 
 while decisao == 1:
