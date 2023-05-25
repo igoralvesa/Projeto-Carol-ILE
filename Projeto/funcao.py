@@ -4,7 +4,8 @@ def menu():
     print(" \t \t \t 2- Ler \t \t ")
     print(" \t \t \t 3- Atualizar \t \t ")
     print(" \t \t \t 4- Deletar \t \t\t ")
-    print(" \t \t \t 5- Sair \t \t\t ")
+    print(" \t \t \t 5- Reiniciar \t \t\t ")
+    print(" \t \t \t 6- Sair \t \t\t ")
     print("-"*76) 
     
 def tabela_categoria():   
@@ -23,8 +24,3 @@ def tabela_categoria_ler():
     print("\t \t \t 4 - USO PESSOAL \t \t \t")
     print("\t \t \t 5 - GASTOS TOTAIS \t \t \t")
     print("-"*76)
-
-        
-
-
-
