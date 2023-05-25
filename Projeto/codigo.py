@@ -1,4 +1,4 @@
-import os
+import os 
 from funcao import menu
 from funcao import tabela_categoria
 from funcao import tabela_categoria_ler
@@ -9,7 +9,7 @@ while True:
         valores = [1, 2]
         decisao = int(input("você deseja entrar no menu? [1 - SIM, 2 - NÃO] "))
         if decisao in valores:
-            break
+            break 
         else:
             print("VALOR INVÁLIDO! as opções são 1 ou 2")
     except ValueError:
@@ -19,15 +19,13 @@ while True:
 
 def adicionar():
     arquivo = open("dados.csv", "a")
-    nome = input("Com o que você gastou? ::: ").capitalize()
+    nome = input("Com o que você gastou? ").capitalize()
     while True:
         try:
          valor = float(input("Quanto custou? "))
          break
-        except KeyError:
-            print("informe um valor válido.")
         except ValueError:
-            print("informe um valor válido")
+            print("LETRAS NÃO SÃO ACEITAS! informe um valor válido")
     tabela_categoria()
     
     while True:
@@ -96,7 +94,7 @@ def atualizar():
       
         if transacao_atualizar in transacoes:
         
-            novo_nome = input("Digite o nome do novo gasto ::: ").capitalize()
+            novo_nome = input("Digite o nome do novo gasto : ").capitalize()
             
             while True:
                 try:
@@ -137,7 +135,7 @@ def deletar():
             transacoes.append(i[:exc].replace("\t", ""))
         arquivo.close()
 
-        excluir = input(f"\nQual transação você deseja deletar?? ").capitalize()
+        excluir = input(f"\nQual transação você deseja deletar? ").capitalize()
 
         if excluir in transacoes:
             arquivo = open("dados.csv", "w")
@@ -164,10 +162,8 @@ while decisao == 1:
             else:
                 print("VALOR INVÁLIDO! as opções são de 1 a 5")
                 menu()
-        except KeyError:
-            print("informe um valor válido.")
         except ValueError:
-            print("Informe um valor válido.")
+            print("LETRAS NÃO SÃO ACEITAS! informe um valor válido")
     if pergunta == 1:
         adicionar()
 
