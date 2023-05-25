@@ -148,13 +148,19 @@ def deletar():
 
         else:
             print("Digite uma transação válida! ", "\n")
+       
+            
+def reiniciar():
+    arquivo = open("dados.csv", "w")
+    arquivo.close()
+        
 
 
 while decisao == 1:
     menu()
     while True:
         try:
-            valores = [1,2,3,4,5]
+            valores = [1,2,3,4,5, 6]
             pergunta = int(input("O que você deseja realizar? "))
             os.system('cls')
             if pergunta in valores:
@@ -175,8 +181,10 @@ while decisao == 1:
 
     elif pergunta == 4:
         deletar()
-
-    
+        
+    elif pergunta == 5:
+        reiniciar()
+        
     else:
         break
 
