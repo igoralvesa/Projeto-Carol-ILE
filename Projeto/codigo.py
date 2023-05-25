@@ -166,7 +166,7 @@ while decisao == 1:
             if pergunta in valores:
                 break
             else:
-                print("VALOR INVÁLIDO! as opções são de 1 a 5")
+                print("VALOR INVÁLIDO! as opções são de 1 a 6")
                 menu()
         except ValueError:
             print("LETRAS NÃO SÃO ACEITAS! informe um valor válido")
